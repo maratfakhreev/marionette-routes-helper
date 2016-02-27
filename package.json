@@ -1,0 +1,38 @@
+{
+  "name": "marionette-routes-helper",
+  "description": "",
+  "version": "1.0.0",
+  "main": "lib/marionette-routes-helper.js",
+  "author": {
+    "name": "Marat Fakhreev",
+    "email": "marat.fakhreev@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "github": "https://github.com/maratfakhreev/marionette-routes-helper",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maratfakhreev/marionette-routes-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maratfakhreev/marionette-routes-helper/issues"
+  },
+  "scripts": {
+    "compile": "babel --presets es2015 -d lib/ src/",
+    "pretest": "npm run compile",
+    "lint": "eslint src",
+    "test": "mocha-phantomjs test/index.html && npm run lint",
+    "prepublish": "npm run compile"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-eslint": "^5.0.0",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "chai": "^3.5.0",
+    "eslint": "^2.2.0",
+    "mocha": "^2.4.5",
+    "mocha-phantomjs": "^4.0.2"
+  }
+}
