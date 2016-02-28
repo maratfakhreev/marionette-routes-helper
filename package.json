@@ -1,6 +1,6 @@
 {
   "name": "marionette-routes-helper",
-  "description": "",
+  "description": "Add helper methods for Backbone.Marionette routes",
   "version": "1.0.0",
   "main": "lib/marionette-routes-helper.js",
   "author": {
@@ -8,7 +8,17 @@
     "email": "marat.fakhreev@gmail.com"
   },
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "backbone",
+    "marionette",
+    "approuter",
+    "router",
+    "approutes",
+    "routes",
+    "routing",
+    "helper",
+    "plugin"
+  ],
   "github": "https://github.com/maratfakhreev/marionette-routes-helper",
   "repository": {
     "type": "git",
@@ -24,18 +34,20 @@
     "test": "mocha-phantomjs test/index.html && npm run lint",
     "prepublish": "npm run compile"
   },
-  "devDependencies": {
+  "dependencies": {
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.4",
+    "jquery": "^2.2.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-eslint": "^5.0.0",
     "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
     "chai": "^3.5.0",
     "eslint": "^2.2.0",
-    "jquery": "^2.2.1",
     "mocha": "^2.4.5",
-    "mocha-phantomjs": "^4.0.2",
-    "underscore": "^1.8.3"
+    "mocha-phantomjs": "^4.0.2"
   }
 }
