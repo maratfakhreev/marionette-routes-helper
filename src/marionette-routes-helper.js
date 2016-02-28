@@ -1,28 +1,47 @@
 ((factory) => {
   if (typeof require === 'function' && typeof exports === 'object') {
     // Define as CommonJS export:
-    module.exports = factory();
+    module.exports = factory(require('backbone.marionette'));
   }
   else if (typeof define === 'function' && define.amd) {
     // Define as AMD:
-    define([], factory);
+    define(['backbone.marionette'], factory);
   }
   else {
     // Browser:
-    window.MarionetteRoutesHelper = factory();
+    window.MarionetteRoutesHelper = factory(window.Marionette);
   }
-})(() => {
+})((Marionette) => {
   return class RoutesHelper {
-    static init(options = { root: '/' }) {
-      this.root = options.root;
+    static initialize(options) {
+      this.options = options;
+    }
+
+    static initialized() {
+      return !!this.options;
     }
 
     static bind(routerName, router) {
-      const appRoutes = router.appRoutes;
+      if (!this.initialized()) {
+        throw new Error('You should define options via initialize method');
+      }
 
-      for (const pattern in appRoutes) {
-        if (appRoutes.hasOwnProperty(pattern)) {
-          const routeName = appRoutes[pattern];
+      if (!routerName || typeof routerName !== 'string') {
+        throw new Error('First parameter should be a string');
+      }
+
+      if (!router || !(router instanceof Marionette.AppRouter)) {
+        throw new Error('Second parameter should be an instance of Marionette.AppRouter');
+      }
+
+      this.addRoutes(routerName, router.appRoutes);
+      this.addRoutes(routerName, router.routes);
+    }
+
+    static addRoutes(routerName, routes) {
+      for (const pattern in routes) {
+        if (routes.hasOwnProperty(pattern)) {
+          const routeName = routes[pattern];
 
           this.addRoute(routerName, routeName, pattern);
         }
@@ -30,7 +49,7 @@
     }
 
     static rootPath() {
-      return this.root;
+      return this.options.root;
     }
 
     static prependRoot(path) {
@@ -42,7 +61,7 @@
     static addRoute(routerName, routeName, pattern) {
       const keys = pattern.match(/\:\w+/g);
       const routerPart = routerName;
-      const routePart = routeName.charAt(0).toUpperCase() + routeName.substr(1).toLowerCase();
+      const routePart = routeName.charAt(0).toUpperCase() + routeName.substr(1);
       const methodName = `${routerPart}${routePart}Path`;
 
       this[methodName] = (...params) => {
@@ -63,5 +82,5 @@
 
       return this[methodName];
     }
-  }
+  };
 });
