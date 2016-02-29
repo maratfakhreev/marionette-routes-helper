@@ -76,12 +76,6 @@ MarionetteRoutesHelper.myrouterOtherMethodPath(12) // returns "other/route/12"
 
 `initialize` sets base options
 
-#### bind
-
-**Signature:** `.bind(routerName, routerInstance)`
-
-`bind` binds routes helper with router instance
-
 #### initialized
 
 **Signature:** `.initialized()`
@@ -93,6 +87,18 @@ if (!MarionetteRoutesHelper.initialized()) {
   MarionetteRoutesHelper.initialize({ root: '' });
 }
 ```
+
+#### bind
+
+**Signature:** `.bind(routerName, routerInstance)`
+
+`bind` binds routes helper with router instance
+
+#### rootPath
+
+**Signature:** `.rootPath()`
+
+`rootPath` returns the root path value which passed to it in initialize method
 
 ### Thanks to:
 

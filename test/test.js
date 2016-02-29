@@ -30,6 +30,14 @@ describe('marionette-routes-helper', function() {
   });
 
   describe('Marionette routes helper', function() {
+    it('helper has been initialized', function() {
+      expect(MarionetteRoutesHelper.initialized()).to.be.true;
+    });
+
+    it('helper has method "rootPath"', function() {
+      expect(MarionetteRoutesHelper).to.have.property('rootPath');
+    });
+
     it('helper has appRoutes method "routerMethodPath"', function() {
       expect(MarionetteRoutesHelper).to.have.property('routerMethodPath');
     });
@@ -44,6 +52,10 @@ describe('marionette-routes-helper', function() {
 
     it('helper has routes method "routerOtherMethodWithIdPath"', function() {
       expect(MarionetteRoutesHelper).to.have.property('routerOtherMethodWithIdPath');
+    });
+
+    it('helper has method "rootPath"', function() {
+      expect(MarionetteRoutesHelper.rootPath()).to.equal('');
     });
 
     it('method "routerMethodPath" returns "some/route"', function() {
