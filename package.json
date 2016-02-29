@@ -1,7 +1,7 @@
 {
   "name": "marionette-routes-helper",
   "description": "Add helper methods for Backbone.Marionette routes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/marionette-routes-helper.js",
   "author": {
     "name": "Marat Fakhreev",
