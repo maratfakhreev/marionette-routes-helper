@@ -54,7 +54,7 @@ describe('marionette-routes-helper', function() {
       expect(MarionetteRoutesHelper).to.have.property('routerOtherMethodWithIdPath');
     });
 
-    it('helper has method "rootPath"', function() {
+    it('method "rootPath" returns ""', function() {
       expect(MarionetteRoutesHelper.rootPath()).to.equal('');
     });
 
