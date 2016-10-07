@@ -15,6 +15,7 @@ npm install marionette-routes-helper
 **Browser:**
 ```javascript
 <script>...</script>
+<script src="backbone.radio.js" type="text/javascript"></script>
 <script src="backbone.marionette.js" type="text/javascript"></script>
 <script src="marionette-routes-helper.js" type="text/javascript"></script>
 ```
